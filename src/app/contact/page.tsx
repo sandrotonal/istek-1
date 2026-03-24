@@ -1,0 +1,156 @@
+"use client";
+
+import React from 'react';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+
+export default function ContactPage() {
+  return (
+    <div className="pt-32 pb-20 px-6 max-w-7xl mx-auto">
+      {/* Hero Section */}
+      <section className="mb-24">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 border-b border-outline-variant/20 pb-12">
+          <div className="space-y-2">
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="font-mono text-primary text-sm tracking-[0.3em] uppercase"
+            >
+              Initiate Connection // 2024
+            </motion.span>
+            <motion.h1
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="text-5xl md:text-7xl font-headline font-bold tracking-tighter text-on-surface"
+            >
+              LET&apos;S BUILD <span className="text-primary">SOMETHING</span>
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              className="text-on-surface-variant text-lg max-w-lg leading-relaxed pt-4"
+            >
+              Architecting high-performance digital environments with precision and technical authority. Reach out to initiate a collaboration.
+            </motion.p>
+          </div>
+        </div>
+      </section>
+
+      {/* Main Layout Grid */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        {/* Left Column: Form */}
+        <div className="lg:col-span-7">
+          <div className="space-y-12">
+            <h2 className="font-headline text-3xl font-bold tracking-tight flex items-center gap-4">
+              <span className="w-12 h-[1px] bg-primary"></span>
+              TRANSMIT MESSAGE
+            </h2>
+            <form className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-2 group">
+                  <label className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant group-focus-within:text-primary transition-colors">Identification</label>
+                  <input className="w-full bg-surface-container-lowest border-none py-4 px-4 font-mono text-sm placeholder:text-outline-variant transition-all focus:ring-0 focus:border-l-2 focus:border-primary outline-none" placeholder="YOUR NAME" type="text" required />
+                </div>
+                <div className="space-y-2 group">
+                  <label className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant group-focus-within:text-primary transition-colors">Protocol Address</label>
+                  <input className="w-full bg-surface-container-lowest border-none py-4 px-4 font-mono text-sm placeholder:text-outline-variant transition-all focus:ring-0 focus:border-l-2 focus:border-primary outline-none" placeholder="EMAIL@DOMAIN.COM" type="email" required />
+                </div>
+              </div>
+              <div className="space-y-2 group">
+                <label className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant group-focus-within:text-primary transition-colors">Transmission Payload</label>
+                <textarea className="w-full bg-surface-container-lowest border-none py-4 px-4 font-mono text-sm placeholder:text-outline-variant transition-all focus:ring-0 focus:border-l-2 focus:border-primary outline-none resize-none" placeholder="DESCRIBE THE ARCHITECTURAL CHALLENGE..." rows={6} required></textarea>
+              </div>
+              <button className="group relative inline-flex items-center gap-4 bg-primary text-on-primary-fixed px-10 py-5 font-headline font-bold text-lg hover:shadow-[0_0_30px_rgba(129,236,255,0.4)] transition-all active:scale-95 w-full sm:w-auto justify-center" type="submit">
+                INITIATE CONNECTION
+                <span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
+              </button>
+            </form>
+          </div>
+        </div>
+
+        {/* Right Column: Info & Links */}
+        <div className="lg:col-span-5 space-y-16">
+          {/* Social Connections */}
+          <div className="space-y-8">
+            <h3 className="font-headline text-xl font-bold tracking-tight">DIRECT_NODES</h3>
+            <div className="grid grid-cols-1 gap-4">
+              {/* GitHub */}
+              <a className="glass-panel border border-outline-variant/10 p-6 flex items-center justify-between group hover:border-primary/40 transition-all duration-500" href="https://github.com/omerozbay" target="_blank" rel="noopener noreferrer">
+                <div className="flex items-center gap-6">
+                  <div className="w-12 h-12 flex items-center justify-center bg-surface-container-highest group-hover:bg-primary/10 transition-colors">
+                    <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary">terminal</span>
+                  </div>
+                  <div>
+                    <p className="font-headline font-bold text-lg text-on-surface">GitHub</p>
+                    <p className="font-mono text-[10px] text-on-surface-variant">/repositories/source-code</p>
+                  </div>
+                </div>
+                <span className="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:translate-x-1 transition-all">north_east</span>
+              </a>
+              {/* LinkedIn */}
+              <a className="glass-panel border border-outline-variant/10 p-6 flex items-center justify-between group hover:border-primary/40 transition-all duration-500" href="https://linkedin.com/in/omerozbay" target="_blank" rel="noopener noreferrer">
+                <div className="flex items-center gap-6">
+                  <div className="w-12 h-12 flex items-center justify-center bg-surface-container-highest group-hover:bg-primary/10 transition-colors">
+                    <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary">work</span>
+                  </div>
+                  <div>
+                    <p className="font-headline font-bold text-lg text-on-surface">LinkedIn</p>
+                    <p className="font-mono text-[10px] text-on-surface-variant">/professional/network</p>
+                  </div>
+                </div>
+                <span className="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:translate-x-1 transition-all">north_east</span>
+              </a>
+              {/* Twitter/X */}
+              <a className="glass-panel border border-outline-variant/10 p-6 flex items-center justify-between group hover:border-primary/40 transition-all duration-500" href="#" target="_blank" rel="noopener noreferrer">
+                <div className="flex items-center gap-6">
+                  <div className="w-12 h-12 flex items-center justify-center bg-surface-container-highest group-hover:bg-primary/10 transition-colors">
+                    <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary">share</span>
+                  </div>
+                  <div>
+                    <p className="font-headline font-bold text-lg text-on-surface">X / Twitter</p>
+                    <p className="font-mono text-[10px] text-on-surface-variant">/broadcasts/signals</p>
+                  </div>
+                </div>
+                <span className="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:translate-x-1 transition-all">north_east</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Stylized Map / Location */}
+          <div className="space-y-6">
+            <h3 className="font-headline text-xl font-bold tracking-tight">GEOGRAPHIC_ANCHOR</h3>
+            <div className="relative aspect-video w-full overflow-hidden rounded-lg grayscale opacity-60 hover:opacity-100 transition-opacity duration-700 bg-surface-container-low border border-outline-variant/20">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img alt="Stylized dark city grid" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA_bDwxAyQg7HTVByBTIKT1UvySYSZyQoBOJhKBrGJPaT9MqTM1oorLwc2B5JnqKhM2x-Q2eUqAPAmgxE9VSNk4DRBY_uXh9T5JhUAlF5Kql9tcJw5_cyDd8Et7_qXFgxNwpBiRiX2C1q8IeY525hT6hgi5j79ZJuWQgiArpDflgyG-r1ehQQF5qisc05JU160qv0LikZnH1q8FT7c1CCZiNFUSPEf00y-_pl545o3F01R6_go5UhE5t9WisKIogcsJ2ZRzPaw1kP6B"/>
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+              <div className="absolute bottom-6 left-6">
+                <div className="flex items-center gap-3">
+                  <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>location_on</span>
+                  <span className="font-mono text-xs uppercase tracking-[0.2em] text-on-surface">Based in Ağrı, TR [UTC+3]</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Secondary CTA Section */}
+      <section className="mt-40 text-center">
+        <div className="py-24 border-y border-outline-variant/10 relative overflow-hidden">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-primary/5 blur-[120px]"></div>
+          <div className="relative z-10">
+            <h2 className="font-headline text-3xl md:text-4xl font-bold tracking-tight mb-6">READY TO DEPLOY?</h2>
+            <p className="text-on-surface-variant max-w-lg mx-auto mb-8">
+              Whether it&apos;s a greenfield project or refactoring legacy systems, I bring architectural precision to every line of code.
+            </p>
+            <Link href="/projects" className="inline-flex items-center gap-3 text-primary font-mono text-sm uppercase tracking-widest hover:underline">
+              Explore My Work <span className="material-symbols-outlined">arrow_forward</span>
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
