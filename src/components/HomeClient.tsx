@@ -39,7 +39,7 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
                 View My Work
                 <span className="material-symbols-outlined" data-icon="arrow_outward">arrow_outward</span>
               </Link>
-              <Link href="/hakkimda" className="px-8 py-4 border border-outline-variant/30 hover:bg-surface-bright transition-colors font-bold rounded-DEFAULT flex items-center gap-2 text-primary">
+              <Link href="/about" className="px-8 py-4 border border-outline-variant/30 hover:bg-surface-bright transition-colors font-bold rounded-DEFAULT flex items-center gap-2 text-primary">
                 My Tech Stack
                 <span className="material-symbols-outlined" data-icon="terminal">terminal</span>
               </Link>

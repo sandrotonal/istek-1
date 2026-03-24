@@ -51,8 +51,8 @@ const Navbar = () => {
             Blog
           </Link>
           <Link
-            href="/hakkimda"
-            className={`transition-colors ${pathname === '/hakkimda' ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface-variant hover:text-primary'}`}
+            href="/about"
+            className={`transition-colors ${pathname === '/about' ? 'text-primary border-b-2 border-primary pb-1' : 'text-on-surface-variant hover:text-primary'}`}
           >
             About
           </Link>
@@ -122,8 +122,8 @@ const Navbar = () => {
             </li>
             <li className={`transition-all duration-300 ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '250ms' }}>
               <Link 
-                href="/hakkimda" 
-                className={`block hover:translate-x-2 transition-transform ${pathname === '/hakkimda' ? 'text-primary' : 'text-on-surface hover:text-primary'}`}
+                href="/about" 
+                className={`block hover:translate-x-2 transition-transform ${pathname === '/about' ? 'text-primary' : 'text-on-surface hover:text-primary'}`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 About
