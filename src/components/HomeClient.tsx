@@ -93,7 +93,7 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-headline font-bold leading-[0.95] md:leading-[0.9] tracking-tight text-on-surface">
               <AnimatedText text="Developing the" delay={0.3} />
               <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">
+              <span className="text-primary">
                 <AnimatedText text="Future with AI" delay={0.6} />
               </span>
               <AnimatedText text=" & SaaS" delay={0.9} />
