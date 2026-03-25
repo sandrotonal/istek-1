@@ -1,0 +1,14 @@
+{
+  "rules": {
+    "user": "rules/user-rules.md",
+    "project": "rules/project-rules.md"
+  },
+  "skills": {
+    "global": "rules/global-skill.md"
+  },
+  "agent": {
+    "enabled": true,
+    "autoTrigger": ["fileChange", "prCreated"],
+    "outputFormat": "json"
+  }
+}
