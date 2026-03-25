@@ -175,19 +175,53 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
 
       {/* Stats Section */}
       <section className="mb-32">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-8 border border-outline-variant/15 rounded-2xl bg-surface-container-low">
-          <div className="border-l-2 border-primary/20 hover:border-primary transition-colors group pl-6">
-            <div className="text-5xl font-headline font-bold mb-2 text-on-surface group-hover:text-primary transition-colors">50+</div>
-            <div className="font-mono text-xs uppercase tracking-[0.2em] text-on-surface-variant">GitHub Repositories</div>
-          </div>
-          <div className="border-l-2 border-primary/20 hover:border-primary transition-colors group pl-6">
-            <div className="text-5xl font-headline font-bold mb-2 text-on-surface group-hover:text-primary transition-colors">2 Yrs</div>
-            <div className="font-mono text-xs uppercase tracking-[0.2em] text-on-surface-variant">Professional Experience</div>
-          </div>
-          <div className="border-l-2 border-primary/20 hover:border-primary transition-colors group pl-6">
-            <div className="text-5xl font-headline font-bold mb-2 text-on-surface group-hover:text-primary transition-colors">AI+</div>
-            <div className="font-mono text-xs uppercase tracking-[0.2em] text-on-surface-variant">Systems Integrator</div>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 border-y border-outline-variant/10 py-16 px-6 md:px-0 gap-16 md:gap-0">
+          {[
+            { 
+              id: "01", 
+              value: "50+", 
+              label: "GitHub Repositories", 
+              color: "text-primary",
+              tag: "REPOS_INDEX"
+            },
+            { 
+              id: "02", 
+              value: "2 Yrs", 
+              label: "Professional Experience", 
+              color: "text-on-surface",
+              tag: "TIME_STAMP"
+            },
+            { 
+              id: "03", 
+              value: "AI+", 
+              label: "Systems Integrator", 
+              color: "text-primary",
+              tag: "TECH_STACK"
+            }
+          ].map((stat, idx) => (
+            <motion.div 
+              key={idx}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.1 }}
+              className={`flex flex-col gap-6 md:px-12 ${idx !== 0 ? 'md:border-l border-outline-variant/10' : ''}`}
+            >
+              <div className="flex items-center gap-3">
+                <span className="font-mono text-[9px] text-on-surface-variant opacity-40">[{stat.id}]</span>
+                <span className={`font-mono text-[9px] uppercase tracking-[0.3em] ${stat.color} opacity-70`}>{stat.tag}</span>
+              </div>
+              <div className="space-y-1">
+                <div className="text-6xl md:text-7xl font-headline font-black tracking-tighter text-on-surface">
+                  {stat.value}
+                </div>
+                <div className="font-mono text-[10px] md:text-xs text-on-surface-variant uppercase tracking-[0.2em] font-medium">
+                  {stat.label}
+                </div>
+              </div>
+              <div className="w-8 h-[1px] bg-outline-variant/20"></div>
+            </motion.div>
+          ))}
         </div>
       </section>
 
