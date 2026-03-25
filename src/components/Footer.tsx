@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { FaWhatsapp, FaTelegramPlane, FaGithub, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -17,6 +18,12 @@ const Footer = () => {
           <Link href="https://x.com/gucluyumhe" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
             Twitter/X
           </Link>
+          <Link href="https://wa.me/905314803809" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            WhatsApp
+          </Link>
+          <Link href="https://t.me/islamakhachev" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            Telegram
+          </Link>
           <Link href="/contact" className="hover:text-white transition-colors">
             Contact
           </Link>
@@ -24,14 +31,17 @@ const Footer = () => {
 
         <div className="flex gap-4">
           <Link href="https://github.com/sandrotonal" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-8 md:h-8 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-primary hover:text-primary transition-all cursor-pointer">
-            <span className="material-symbols-outlined text-sm">code</span>
+            <FaGithub className="text-sm" />
           </Link>
           <Link href="https://x.com/gucluyumhe" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-8 md:h-8 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-primary hover:text-primary transition-all cursor-pointer">
-             <span className="material-symbols-outlined text-sm">alternate_email</span>
+             <FaTwitter className="text-sm" />
           </Link>
-          <Link href="https://linkedin.com/in/omerozbay" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-8 md:h-8 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-primary hover:text-primary transition-all cursor-pointer">
-             <span className="material-symbols-outlined text-sm">badge</span>
-          </Link>
+          <a href="https://wa.me/905314803809" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-8 md:h-8 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-green-400 hover:text-green-400 transition-all cursor-pointer">
+             <FaWhatsapp className="text-sm" />
+          </a>
+          <a href="https://t.me/islamakhachev" target="_blank" rel="noopener noreferrer" className="w-10 h-10 md:w-8 md:h-8 rounded-full border border-outline-variant/30 flex items-center justify-center hover:border-blue-400 hover:text-blue-400 transition-all cursor-pointer">
+             <FaTelegramPlane className="text-sm" />
+          </a>
         </div>
       </div>
       <div className="flex justify-center mt-12 md:mt-8 md:hidden">

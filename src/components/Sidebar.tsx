@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { FaWhatsapp, FaTelegramPlane } from 'react-icons/fa';
 
 const Sidebar = () => {
   return (
@@ -8,10 +9,14 @@ const Sidebar = () => {
         <span className="material-symbols-outlined text-on-surface-variant opacity-50 group-hover:opacity-100 group-hover:text-primary transition-all scale-110">code</span>
         <span className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant opacity-50 group-hover:opacity-100 group-hover:text-primary">GitHub</span>
       </Link>
-      <Link href="https://linkedin.com/in/omerozbay" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 group cursor-pointer hover:translate-x-1 duration-300">
-        <span className="material-symbols-outlined text-on-surface-variant opacity-50 group-hover:opacity-100 group-hover:text-primary transition-all">account_circle</span>
-        <span className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant opacity-50 group-hover:opacity-100 group-hover:text-primary">LinkedIn</span>
-      </Link>
+      <a href="https://wa.me/905314803809" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 group cursor-pointer hover:translate-x-1 duration-300">
+        <FaWhatsapp className="text-on-surface-variant opacity-50 group-hover:opacity-100 group-hover:text-primary transition-all text-2xl" />
+        <span className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant opacity-50 group-hover:opacity-100 group-hover:text-primary">WhatsApp</span>
+      </a>
+      <a href="https://t.me/islamakhachev" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center gap-1 group cursor-pointer hover:translate-x-1 duration-300">
+        <FaTelegramPlane className="text-on-surface-variant opacity-50 group-hover:opacity-100 group-hover:text-primary transition-all text-2xl" />
+        <span className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant opacity-50 group-hover:opacity-100 group-hover:text-primary">Telegram</span>
+      </a>
     </aside>
   );
 };

@@ -4,6 +4,7 @@ import React, { useRef, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+import { FaWhatsapp, FaTelegramPlane } from 'react-icons/fa';
 
 // EmailJS Configuration
 const EMAILJS_PUBLIC_KEY = 'rsVkjFCEV_9_DBFK5';
@@ -202,31 +203,31 @@ export default function ContactPage() {
                 </div>
                 <span className="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:translate-x-1 transition-all">north_east</span>
               </a>
-              {/* LinkedIn */}
-              <a className="glass-panel border border-outline-variant/10 p-6 flex items-center justify-between group hover:border-primary/40 transition-all duration-500" href="https://linkedin.com/in/omerozbay" target="_blank" rel="noopener noreferrer">
+              {/* WhatsApp */}
+              <a className="glass-panel border border-outline-variant/10 p-6 flex items-center justify-between group hover:border-green-400/40 transition-all duration-500" href="https://wa.me/905314803809" target="_blank" rel="noopener noreferrer">
                 <div className="flex items-center gap-6">
-                  <div className="w-12 h-12 flex items-center justify-center bg-surface-container-highest group-hover:bg-primary/10 transition-colors">
-                    <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary">work</span>
+                  <div className="w-12 h-12 flex items-center justify-center bg-surface-container-highest group-hover:bg-green-400/10 transition-colors">
+                    <FaWhatsapp className="text-on-surface-variant group-hover:text-green-400 text-2xl" />
                   </div>
                   <div>
-                    <p className="font-headline font-bold text-lg text-on-surface">LinkedIn</p>
-                    <p className="font-mono text-[10px] text-on-surface-variant">/professional/network</p>
+                    <p className="font-headline font-bold text-lg text-on-surface">WhatsApp</p>
+                    <p className="font-mono text-[10px] text-on-surface-variant">/direct-message/instant</p>
                   </div>
                 </div>
-                <span className="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:translate-x-1 transition-all">north_east</span>
+                <span className="material-symbols-outlined text-outline-variant group-hover:text-green-400 group-hover:translate-x-1 transition-all">north_east</span>
               </a>
-              {/* Twitter/X */}
-              <a className="glass-panel border border-outline-variant/10 p-6 flex items-center justify-between group hover:border-primary/40 transition-all duration-500" href="https://x.com/gucluyumhe" target="_blank" rel="noopener noreferrer">
+              {/* Telegram */}
+              <a className="glass-panel border border-outline-variant/10 p-6 flex items-center justify-between group hover:border-blue-400/40 transition-all duration-500" href="https://t.me/islamakhachev" target="_blank" rel="noopener noreferrer">
                 <div className="flex items-center gap-6">
-                  <div className="w-12 h-12 flex items-center justify-center bg-surface-container-highest group-hover:bg-primary/10 transition-colors">
-                    <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary">alternate_email</span>
+                  <div className="w-12 h-12 flex items-center justify-center bg-surface-container-highest group-hover:bg-blue-400/10 transition-colors">
+                    <FaTelegramPlane className="text-on-surface-variant group-hover:text-blue-400 text-2xl" />
                   </div>
                   <div>
-                    <p className="font-headline font-bold text-lg text-on-surface">X / Twitter</p>
-                    <p className="font-mono text-[10px] text-on-surface-variant">/broadcasts/signals</p>
+                    <p className="font-headline font-bold text-lg text-on-surface">Telegram</p>
+                    <p className="font-mono text-[10px] text-on-surface-variant">/secure-messaging/channel</p>
                   </div>
                 </div>
-                <span className="material-symbols-outlined text-outline-variant group-hover:text-primary group-hover:translate-x-1 transition-all">north_east</span>
+                <span className="material-symbols-outlined text-outline-variant group-hover:text-blue-400 group-hover:translate-x-1 transition-all">north_east</span>
               </a>
             </div>
           </div>
