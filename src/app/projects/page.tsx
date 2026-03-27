@@ -85,7 +85,7 @@ export default function ProjectsPage() {
                 transition={{ duration: 0.4, ease: "easeOut" }}
                 className={`${colSpanClass} group`}
               >
-                 <a href={project.githubUrl !== '#' ? project.githubUrl : '#'} target="_blank" rel="noopener noreferrer" className="block h-full">
+                 <Link href={`/projects/${project.id}`} className="block h-full">
                     {/* Different card layouts based on span */}
                     {patternIndex === 0 ? (
                       <div className="glass-card p-8 h-full flex flex-col justify-between">
@@ -183,7 +183,7 @@ export default function ProjectsPage() {
                              </div>
                          </div>
                     )}
-                 </a>
+                 </Link>
               </motion.div>
             );
           })}
