@@ -24,5 +24,6 @@ Blog Görselleri: Blog yazıları için kapak görselleri eklemek, sosyal medyad
 
 3.
 Hakkımda Sayfası: "About" kısmını biraz daha kişiselleştirerek, sadece teknik becerilerini değil, çözüm odaklı yaklaşımını anlatan kısa bir hikaye ekleyebilirsin.
-kanka Dövüş sporları ıle ılgılenıyorum
+kanka Dövüş sporları ıle ılgılenıyorum grappling sevıyorum serbest stil güreş yani
+hakkında ksımında belırrebılırısn 
 

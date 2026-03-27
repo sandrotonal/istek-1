@@ -111,7 +111,7 @@ export default function ProjectDetailPage() {
         {['overview', 'gallery', 'videos'].map((tab) => (
           <button
             key={tab}
-            onClick={() => setActiveTab(tab as any)}
+            onClick={() => setActiveTab(tab as 'overview' | 'gallery' | 'videos')}
             className={`px-4 py-3 font-mono text-xs uppercase tracking-wider transition-all ${
               activeTab === tab ? 'text-primary border-b-2 border-primary' : 'text-on-surface-variant hover:text-on-surface'
             }`}
