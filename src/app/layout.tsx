@@ -23,10 +23,73 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Ömer Özbay | Full-Stack Engineer",
-  description: "Software engineer building AI-powered SaaS applications and modern web experiences",
+  title: {
+    default: "Ömer Özbay | Full-Stack Engineer",
+    template: "%s | Ömer Özbay"
+  },
+  description: "Computer Engineering student at Bandırma 17 Eylül University. Building AI-powered SaaS applications, mobile apps, and modern web experiences with React, Next.js, and TypeScript.",
+  keywords: [
+    "Ömer Özbay",
+    "Full-Stack Developer",
+    "Software Engineer",
+    "React Developer",
+    "Next.js Developer",
+    "TypeScript",
+    "Frontend Developer",
+    "Backend Developer",
+    "Mobile App Developer",
+    "Quran App",
+    "SaaS Developer",
+    "AI Integration",
+    "Web Development",
+    "Turkey Developer",
+    "Bandırma"
+  ],
+  authors: [
+    { name: "Ömer Özbay", url: "https://gucluyumhe.dev" }
+  ],
+  creator: "Ömer Özbay",
+  publisher: "Ömer Özbay",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "tr_TR",
+    url: "https://gucluyumhe.dev",
+    title: "Ömer Özbay | Full-Stack Engineer",
+    description: "Computer Engineering student building AI-powered SaaS applications and modern web experiences",
+    siteName: "Ömer Özbay Portfolio",
+    images: [
+      {
+        url: "https://gucluyumhe.dev/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Ömer Özbay - Full-Stack Engineer Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ömer Özbay | Full-Stack Engineer",
+    description: "Computer Engineering student building AI-powered SaaS applications and modern web experiences",
+    creator: "@gucluyumhe",
+    images: ["https://gucluyumhe.dev/twitter-image.png"],
+  },
   icons: {
     icon: '/favicon.svg',
+  },
+  manifest: '/site.webmanifest',
+  alternates: {
+    canonical: 'https://gucluyumhe.dev',
   },
 };
 
@@ -38,6 +101,7 @@ export default function RootLayout({
   return (
     <html lang="tr" className="dark">
       <head>
+        <meta name="google-site-verification" content="S4AmguZUsl3R0caFt-YZ0ztkck_dYM1yOZPH-j22X_4" />
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
         <style>{`
           .material-symbols-outlined {
