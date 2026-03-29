@@ -2,7 +2,7 @@ import { getAllPostIds } from '@/utils/markdown';
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://example.com'; // User should update this domain
+  const baseUrl = 'https://gucluyumhe.dev';
   const posts = getAllPostIds();
 
   const postUrls = posts.map((post) => ({
