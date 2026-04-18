@@ -200,18 +200,89 @@ export default function ProjectsPage() {
         </motion.div>
       )}
 
-      {/* System Message Call to Action */}
-      <section className="mt-24 py-16 px-8 bg-surface-container-lowest border border-outline-variant/10 rounded-xl flex flex-col md:flex-row items-center justify-between gap-12">
-        <div className="max-w-xl">
-          <h3 className="text-3xl font-headline font-bold mb-4 text-on-surface">System Status: Building Future</h3>
-          <p className="text-on-surface-variant font-mono text-sm leading-relaxed">
-            Computer Engineering student at Bandırma 17 Eylül University (2023-Present). Building SaaS projects and AI-integrated applications. If you have a challenge that needs precise execution, let&apos;s talk.
-          </p>
+{/* Cyber-Minimalist Command Terminal CTA */}
+      <section className="mt-32 mb-20 w-full px-4 sm:px-6 flex justify-center">
+        <div className="w-full max-w-5xl relative group">
+          <div className="absolute -inset-0.5 bg-gradient-to-r from-primary/20 via-transparent to-primary/20 rounded-2xl blur opacity-30 group-hover:opacity-70 transition duration-1000 -z-10"></div>
+          
+          <div className="relative bg-[#050505]/80 backdrop-blur-md rounded-2xl border border-outline-variant/10 overflow-hidden flex flex-col lg:flex-row hover:border-primary/30 transition-colors duration-500 shadow-[0_0_40px_rgba(0,0,0,0.8)]">
+            
+            <div className="flex-1 p-6 sm:p-10 flex flex-col justify-center relative overflow-hidden min-h-[220px]">
+               <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:16px_16px] opacity-30"></div>
+
+               <div className="relative z-10 flex items-center justify-between mb-6">
+                 <div className="flex gap-2">
+                   <div className="w-3 h-3 rounded-full bg-red-500/80 border border-red-500"></div>
+                   <div className="w-3 h-3 rounded-full bg-yellow-500/80 border border-yellow-500"></div>
+                   <div className="w-3 h-3 rounded-full bg-green-500/80 border border-green-500"></div>
+                 </div>
+                 <span className="text-on-surface-variant/40 font-mono text-[10px] tracking-widest uppercase mr-2 flex items-center gap-2"><span className="material-symbols-outlined text-[12px]">vpn_key</span> SSH-CONNECTED</span>
+               </div>
+
+               <div className="relative z-10 font-mono text-xs sm:text-sm text-on-surface-variant flex flex-col gap-2.5">
+                 <div className="flex items-center flex-wrap">
+                   <span className="text-primary font-bold mr-2">root@mainframe:~$</span>
+                   <span className="text-on-surface typing-animation inline-block overflow-hidden whitespace-nowrap border-r-2 border-primary pr-1">./deploy_vision.sh</span>
+                 </div>
+                 <div className="text-on-surface-variant flex items-center gap-2 mt-2 opacity-0 animate-[fade_0.1s_forwards]" style={{animationDelay: '1.5s'}}>
+                   <span className="material-symbols-outlined text-[14px] text-green-500">task_alt</span>
+                   <span className="truncate">Scanning capabilities [OK]</span>
+                 </div>
+                 <div className="text-on-surface-variant flex items-center gap-2 opacity-0 animate-[fade_0.1s_forwards]" style={{animationDelay: '2s'}}>
+                   <span className="material-symbols-outlined text-[14px] text-green-500">task_alt</span>
+                   <span className="truncate">Engineering resources located [OK]</span>
+                 </div>
+                 <div className="text-[#eee] border-l-2 border-primary pl-3 py-1 bg-primary/5 mt-4 opacity-0 animate-[fade_0.4s_forwards]" style={{animationDelay: '2.8s'}}>
+                   <span className="font-bold text-primary animate-pulse">ACTION_REQUIRED:</span> Awaiting your signal to scale infrastructure.
+                 </div>
+               </div>
+            </div>
+
+            <div className="w-full lg:w-[380px] bg-[#080808] border-t lg:border-t-0 lg:border-l border-outline-variant/10 p-6 sm:p-10 flex flex-col justify-center relative">
+               <div className="absolute top-0 right-0 p-6 opacity-[0.03] pointer-events-none">
+                 <span className="material-symbols-outlined text-[120px]">fingerprint</span>
+               </div>
+
+               <h4 className="text-2xl sm:text-3xl font-headline font-black text-on-surface mb-3 relative z-10 leading-tight">
+                  Ready to level up?
+               </h4>
+               <p className="text-on-surface-variant font-mono text-xs sm:text-sm mb-8 relative z-10 leading-relaxed md:pr-4">
+                  Let&apos;s engineer it into reality. Available for bold visions and serious missions.
+               </p>
+
+               <div className="w-full space-y-3 relative z-10">
+                 <Link href="/contact" className="w-full py-3.5 sm:py-4 bg-primary/10 border border-primary/50 text-primary hover:bg-primary hover:text-[#050505] hover:shadow-[0_0_20px_rgba(var(--color-primary),0.2)] transition-all flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-[0.2em] font-bold group/link relative overflow-hidden rounded-md">
+                   <span className="relative z-10">Establish Ping</span>
+                   <span className="material-symbols-outlined text-[16px] relative z-10 group-hover/link:translate-x-1 transition-transform">send</span>
+                 </Link>
+                 
+                 <Link href="/about" className="w-full py-3 text-on-surface-variant/80 bg-surface-container-lowest/50 hover:bg-surface-container-highest border border-outline-variant/20 hover:border-outline-variant/40 hover:text-on-surface transition-all rounded-md flex items-center justify-center gap-2 font-mono text-[10px] sm:text-xs uppercase tracking-widest group/link2">
+                   <span>View Blueprint (Resume)</span>
+                   <span className="material-symbols-outlined text-[14px] opacity-70 group-hover/link2:opacity-100 group-hover/link2:-translate-y-0.5 transition-transform">description</span>
+                 </Link>
+               </div>
+            </div>
+            
+          </div>
         </div>
-        <div className="flex flex-wrap gap-4">
-          <Link href="/about" className="bg-surface-bright text-on-surface px-8 py-3 font-mono text-xs hover:bg-primary hover:text-on-primary transition-all rounded-sm uppercase tracking-wider font-bold inline-block">VIEW_RESUME.PDF</Link>
-          <Link href="/contact" className="border border-primary text-primary px-8 py-3 font-mono text-xs hover:bg-primary/5 transition-all rounded-sm uppercase tracking-wider font-bold inline-block">TERMINAL_MODE</Link>
-        </div>
+
+        <style dangerouslySetInnerHTML={{__html: `
+          @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+          }
+          @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: rgba(var(--color-primary), 1) }
+          }
+          @keyframes fade {
+            to { opacity: 1; }
+          }
+          .typing-animation {
+            animation: typing 1s steps(20, end) forwards, blink-caret .75s step-end infinite;
+            max-width: 100%;
+          }
+        `}} />
       </section>
     </div>
   );

@@ -81,15 +81,7 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
       <section className="relative min-h-[80vh] flex items-center pt-20 overflow-hidden grid-pattern -mx-8 px-8 mb-32">
         <div className="max-w-screen-2xl mx-auto w-full relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
-            <motion.div 
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-3 px-3 py-1 bg-surface-container-highest border border-outline-variant/20 rounded-DEFAULT"
-            >
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-              <span className="font-mono text-xs text-on-surface-variant tracking-wider uppercase">Status: Operational</span>
-            </motion.div>
+            {/* Status indicator removed per user request for absolute minimalism */}
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-headline font-bold leading-[0.95] md:leading-[0.9] tracking-tight text-on-surface">
               <AnimatedText text="Developing the" delay={0.3} />
               <br />
@@ -110,15 +102,20 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.4 }}
-              className="flex flex-wrap gap-4 pt-4"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6 pt-8 w-full sm:w-auto"
             >
-              <Link href="/projects" className="px-8 py-4 bg-primary text-on-primary font-bold rounded-DEFAULT hover:shadow-[0_0_30px_rgba(129,236,255,0.4)] transition-all flex items-center gap-2">
-                View My Work
-                <span className="material-symbols-outlined" data-icon="arrow_outward">arrow_outward</span>
+              <Link href="/projects" className="group relative flex items-center justify-center gap-3 px-8 py-4 bg-primary text-[#050505] font-mono text-xs uppercase tracking-[0.15em] font-bold rounded-sm overflow-hidden transition-all duration-500 hover:shadow-[0_0_30px_rgba(var(--color-primary),0.3)] w-full sm:w-auto">
+                <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></span>
+                <span className="relative z-10 flex items-center gap-2">
+                  View My Work
+                </span>
               </Link>
-              <Link href="/about" className="px-8 py-4 border border-outline-variant/30 hover:bg-surface-bright transition-colors font-bold rounded-DEFAULT flex items-center gap-2 text-primary">
-                My Tech Stack
-                <span className="material-symbols-outlined" data-icon="terminal">terminal</span>
+
+              <Link href="/about" className="group relative flex items-center justify-center gap-3 px-8 py-4 border border-outline-variant/30 bg-surface-container-lowest text-on-surface font-mono text-xs uppercase tracking-[0.15em] font-bold rounded-sm overflow-hidden transition-all duration-500 hover:border-primary/50 hover:bg-primary/5 hover:text-primary w-full sm:w-auto">
+                <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-primary/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out"></span>
+                <span className="relative z-10 flex items-center gap-2">
+                  My Tech Stack
+                </span>
               </Link>
             </motion.div>
           </div>

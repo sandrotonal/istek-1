@@ -81,7 +81,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden flex items-center text-primary z-50 bg-surface-container-low p-2 rounded-md border border-outline-variant/20"
+          className="md:hidden flex items-center text-primary z-50 bg-surface-container-low p-2 rounded-md focus:outline-none focus:ring-0"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label={isMenuOpen ? 'Close Menu' : 'Open Menu'}
           aria-expanded={isMenuOpen}

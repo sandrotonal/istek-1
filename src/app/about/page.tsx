@@ -120,7 +120,7 @@ export default function AboutPage() {
           <span className="font-mono text-secondary text-sm tracking-widest uppercase mb-4 block">02 / Ecosystem</span>
           <h2 className="font-headline text-4xl md:text-5xl font-bold tracking-tight text-on-surface">Technical Stack</h2>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           <div className="surface-container border border-outline-variant/15 p-6 rounded-lg flex flex-col gap-4 hover:border-primary/50 transition-all group bg-surface-container-low">
             <div className="w-10 h-10 flex items-center justify-center text-primary">
               <span className="material-symbols-outlined text-3xl">terminal</span>
@@ -164,6 +164,15 @@ export default function AboutPage() {
             <div>
               <h4 className="font-headline font-bold text-on-surface">AI &amp; LLMs</h4>
               <p className="font-mono text-[10px] text-on-surface-variant uppercase">AI Implementation</p>
+            </div>
+          </div>
+          <div className="surface-container border border-outline-variant/15 p-6 rounded-lg flex flex-col gap-4 hover:border-primary/50 transition-all bg-surface-container-low">
+            <div className="w-10 h-10 flex items-center justify-center text-primary">
+              <span className="material-symbols-outlined text-3xl">architecture</span>
+            </div>
+            <div>
+              <h4 className="font-headline font-bold text-on-surface">PostgreSQL / DB</h4>
+              <p className="font-mono text-[10px] text-on-surface-variant uppercase">Data Architecture</p>
             </div>
           </div>
         </div>
