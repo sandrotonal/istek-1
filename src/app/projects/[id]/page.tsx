@@ -89,7 +89,7 @@ export default function ProjectDetailPage() {
       </motion.div>
 
       {/* Action Buttons */}
-      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex flex-wrap gap-3 mb-10">
+      <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex flex-row items-center gap-4 mb-10">
         {project.demoUrl && (
           <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" 
              className="inline-flex items-center gap-2 bg-primary text-on-primary-fixed px-6 py-3 font-mono text-xs uppercase tracking-wider hover:shadow-[0_0_30px_rgba(0,229,255,0.3)] transition-all">
