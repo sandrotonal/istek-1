@@ -64,13 +64,30 @@ export const projects = [
   },
   {
     id: 3,
-    title: 'SaaS Starter Kit',
-    description: 'A starter template for rapid SaaS development with Next.js, Tailwind CSS, and Stripe integration.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80',
-    demoUrl: 'https://example.com/demo',
-    githubUrl: 'https://github.com/omerozbay/saas-starter',
-    technologies: ['Next.js', 'React', 'Tailwind', 'Stripe'],
-    categories: ['REACT_JS', 'NODE_JS']
+    title: 'Guts Berserk',
+    description: 'A dedicated tribute web application for the legendary manga series Berserk, featuring an immersive dark theme UI and interactive character showcases.',
+    longDescription: 'An interactive tribute platform dedicated to the legendary manga series Berserk. Built with React and Vite, the platform embodies a dark aesthetic true to the atmosphere of the series. It features rich media integration, dynamic character lore, fluid animations with Framer Motion, and a contact form integrated with EmailJS. The modern and fully responsive design provides fans with a unique visual and narrative experience.',
+    image: '/images/berserk/berserk-cover.webp',
+    gallery: [
+      '/images/berserk/berserk-1.png',
+      '/images/berserk/berserk-2.png',
+      '/images/berserk/berserk-3.png',
+      '/images/berserk/berserk-4.png',
+      '/images/berserk/berserk-5.png'
+    ],
+    videos: [],
+    features: [
+      'Immersive dark theme crafted with Tailwind CSS v4',
+      'Smooth scroll transitions and animated UI with Framer Motion',
+      'Interactive character and lore showcases',
+      'Integrated contact form powered by EmailJS',
+      'Fast and optimized build with Vite',
+      'Fully responsive modern interface'
+    ],
+    demoUrl: 'https://guts-berserk.vercel.app/',
+    githubUrl: 'https://github.com/sandrotonal/guts_berserk',
+    technologies: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion', 'TypeScript', 'EmailJS'],
+    categories: ['REACT_JS', 'HTML_CSS']
   },
   {
     id: 4,
