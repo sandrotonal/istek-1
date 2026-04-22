@@ -6,8 +6,8 @@ import { motion } from 'framer-motion';
 import { SiTypescript, SiReact, SiNextdotjs, SiTailwindcss, SiNodedotjs, SiOpenai, SiPostgresql } from 'react-icons/si';
 
 export default function AboutPage() {
-  const [githubData, setGithubData] = useState<{isPrimary: boolean; opacity: number}[]>([]);
-  
+  const [githubData, setGithubData] = useState<{ isPrimary: boolean; opacity: number }[]>([]);
+
   useEffect(() => {
     // Generate random data only on client side to avoid hydration mismatch
     const data = Array.from({ length: 84 }).map(() => {
@@ -17,7 +17,7 @@ export default function AboutPage() {
     });
     setGithubData(data);
   }, []);
-  
+
   return (
     <div className="pt-32 pb-20 px-6 max-w-screen-xl mx-auto relative overflow-hidden">
       {/* Background Ambient Glows */}
@@ -27,12 +27,12 @@ export default function AboutPage() {
       {/* Section 1: The Architect behind the Code */}
       <section className="mb-32 pt-8">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          <div className="lg:col-span-7 space-y-10 text-center lg:text-left flex flex-col items-center lg:items-start">
-            <div className="space-y-4 w-full flex flex-col items-center lg:items-start">
+          <div className="lg:col-span-7 space-y-10">
+            <div className="space-y-4">
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="flex items-center gap-3 justify-center lg:justify-start"
+                className="flex items-center gap-3"
               >
                 <div className="h-[1px] w-8 bg-primary"></div>
                 <span className="font-mono text-primary text-xs tracking-[0.3em] uppercase">
@@ -45,23 +45,23 @@ export default function AboutPage() {
                 transition={{ delay: 0.1 }}
                 className="text-5xl md:text-6xl lg:text-7xl font-headline font-bold tracking-tighter text-on-surface leading-[1.1]"
               >
-                The Architect <br className="hidden lg:block" />
+                The Architect <br className="hidden md:block" />
                 <span className="text-primary italic font-light">behind the Code.</span>
               </motion.h1>
             </div>
 
             {/* Backgroundless Bio Content */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="space-y-8 pl-0 lg:pl-8 border-l-0 lg:border-l-[3px] border-primary/20 flex flex-col items-center lg:items-start"
+              className="space-y-8 pl-5 md:pl-8 border-l-[3px] border-primary/20"
             >
               <p className="text-xl md:text-2xl font-headline font-medium text-on-surface leading-snug tracking-tight max-w-2xl">
-                I am a developer based in <span className="text-primary">Ağrı, Turkey</span>, 
+                I am a developer based in <span className="text-primary">Ağrı, Turkey</span>,
                 studying Computer Engineering at <span className="text-primary">Bandırma 17 Eylül University</span>.
               </p>
-              
+
               <div className="space-y-5 text-on-surface-variant leading-relaxed text-base md:text-lg max-w-2xl font-light">
                 <p>
                   I focus on engineering digital environments that merge <span className="text-on-surface font-medium">high-performance SaaS architecture</span> with <span className="text-on-surface font-medium">intuitive AI intelligence</span>. My approach is architectural: I don&apos;t just write code; I design systems.
@@ -71,38 +71,43 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-4">
-                 <div className="flex items-center gap-2">
-                   <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></div>
-                   <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest">System_Operational</span>
-                 </div>
-                 <div className="hidden sm:block h-[1px] w-12 bg-outline-variant/30"></div>
-                 <span className="font-mono text-[10px] text-primary uppercase tracking-widest font-bold bg-primary/10 px-3 py-1.5 rounded-sm">Technical Authority & Precision</span>
+              <div className="pt-4 flex flex-wrap items-center gap-4">
+                <div className="flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></div>
+                  <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest">System_Operational</span>
+                </div>
+                <div className="hidden sm:block h-[1px] w-12 bg-outline-variant/30"></div>
+                <span className="font-mono text-[10px] text-primary uppercase tracking-widest font-bold bg-primary/10 px-3 py-1.5 rounded-sm">Technical Authority & Precision</span>
               </div>
             </motion.div>
           </div>
 
-          <div className="lg:col-span-5 relative mt-12 lg:mt-0 px-4 sm:px-12 md:px-24 lg:px-0 flex justify-center">
-            {/* Elegant Circular Image Container with Hover Glow */}
-            <motion.div 
+          <div className="lg:col-span-5 relative mt-8 lg:mt-0 px-4 sm:px-12 md:px-24 lg:px-0">
+            {/* Elegant Image Container without heavy borders */}
+            <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.3, duration: 0.8 }}
-              className="aspect-square w-full max-w-[400px] overflow-hidden rounded-full relative group border-4 border-outline-variant/10 hover:border-primary/50 transition-all duration-500 shadow-[0_0_50px_rgba(var(--color-primary),0.1)] hover:shadow-[0_0_80px_rgba(var(--color-primary),0.3)]"
+              className="aspect-[4/5] overflow-hidden rounded-3xl relative group"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10 pointer-events-none"></div>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img 
-                alt="Portrait of Ömer Özbay" 
-                className="w-full h-full object-cover grayscale contrast-110 opacity-90 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700" 
-                src="/images/profile.jpg" 
+              <img
+                alt="Portrait of Ömer Özbay"
+                className="w-full h-full object-cover grayscale contrast-110 opacity-90 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700"
+                src="/images/profile.jpg"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent z-10 pointer-events-none"></div>
-              
-              {/* Clean Overlay Info inside the circular image */}
-              <div className="absolute inset-0 z-20 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/40 backdrop-blur-[2px]">
-                <h3 className="font-headline font-bold text-2xl text-white">Ömer Özbay</h3>
-                <p className="font-mono text-[10px] text-primary uppercase tracking-widest mt-1 font-bold">Full-Stack Engineer</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent z-10 pointer-events-none"></div>
+
+              {/* Clean Overlay Info inside the image */}
+              <div className="absolute bottom-6 sm:bottom-8 left-6 sm:left-8 right-6 sm:right-8 z-20 flex justify-between items-end">
+                <div>
+                  <h3 className="font-headline font-bold text-2xl sm:text-3xl text-white group-hover:text-primary transition-colors">Ömer Özbay</h3>
+                  <p className="font-mono text-[10px] sm:text-xs text-white/70 uppercase tracking-widest mt-1">Full-Stack Engineer</p>
+                </div>
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-white/20 bg-black/20 backdrop-blur-md flex items-center justify-center text-white group-hover:bg-primary group-hover:border-primary transition-all duration-300 shadow-lg">
+                  <span className="material-symbols-outlined text-lg sm:text-xl">architecture</span>
+                </div>
               </div>
             </motion.div>
           </div>
@@ -123,7 +128,7 @@ export default function AboutPage() {
             </div>
             <span className="text-[9px] md:text-[10px] font-mono text-on-surface-variant group-hover:text-primary transition-colors uppercase tracking-widest text-center">TypeScript</span>
           </div>
-          
+
           <div className="flex flex-col items-center gap-3 group cursor-default">
             <div className="w-16 h-16 md:w-20 md:h-20 rounded-full border border-outline-variant/10 bg-surface-container-low/30 flex items-center justify-center group-hover:bg-primary/10 group-hover:border-primary/40 group-hover:-translate-y-2 transition-all duration-500 shadow-lg relative overflow-hidden">
               <div className="absolute inset-0 bg-primary/20 scale-0 group-hover:scale-100 rounded-full transition-transform duration-500 origin-bottom"></div>
@@ -197,7 +202,7 @@ export default function AboutPage() {
                 </div>
               </div>
             </div>
-            
+
             {/* Center Dot */}
             <div className="absolute left-6 md:left-1/2 -translate-x-1/2 top-2 md:top-1/2 md:-translate-y-1/2 w-4 h-4 bg-background border-2 border-primary/40 rounded-full z-10 flex items-center justify-center">
               <div className="w-1.5 h-1.5 bg-primary rounded-full scale-50 group-hover:scale-100 transition-transform duration-500 shadow-[0_0_10px_rgba(var(--color-primary),0.8)]"></div>

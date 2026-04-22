@@ -255,48 +255,48 @@ export default function ProjectDetailPage() {
           {/* Right: Project Details */}
           <div className="space-y-8">
             {/* About Section */}
-            <div className="bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-6">
-              <h3 className="font-headline text-xl font-bold text-on-surface mb-4 flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary">info</span>
+            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 hover:bg-white/[0.07] transition-colors group/card">
+              <h3 className="font-headline text-xl font-bold text-on-surface mb-6 flex items-center gap-3">
+                <span className="material-symbols-outlined text-primary group-hover/card:scale-110 transition-transform">info</span>
                 About This Project
               </h3>
-              <p className="text-on-surface-variant text-sm leading-relaxed">
+              <p className="text-on-surface-variant text-base leading-relaxed font-light">
                 {project.longDescription || project.description}
               </p>
             </div>
 
             {/* Key Features */}
             {project.features && (
-              <div className="bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-6">
-                <h3 className="font-headline text-xl font-bold text-on-surface mb-4 flex items-center gap-2">
-                  <span className="material-symbols-outlined text-primary">star</span>
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 hover:bg-white/[0.07] transition-colors group/card">
+                <h3 className="font-headline text-xl font-bold text-on-surface mb-6 flex items-center gap-3">
+                  <span className="material-symbols-outlined text-primary group-hover/card:scale-110 transition-transform">star</span>
                   Key Features
                 </h3>
-                <div className="grid grid-cols-1 gap-3">
+                <div className="grid grid-cols-1 gap-4">
                   {project.features.slice(0, 4).map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-3 p-3 bg-surface-container-low rounded-lg">
-                      <span className="material-symbols-outlined text-primary text-sm">check_circle</span>
-                      <span className="text-sm text-on-surface-variant">{feature}</span>
+                    <div key={idx} className="flex items-start gap-4 p-4 bg-white/[0.03] border border-white/5 rounded-xl hover:bg-white/[0.08] transition-all">
+                      <span className="material-symbols-outlined text-primary text-base">check_circle</span>
+                      <span className="text-sm text-on-surface-variant font-light">{feature}</span>
                     </div>
                   ))}
                 </div>
                 {project.features.length > 4 && (
-                  <button onClick={() => setActiveTab('gallery')} className="mt-4 text-primary text-xs font-mono uppercase hover:underline">
-                    View all {project.features.length} features →
+                  <button onClick={() => setActiveTab('gallery')} className="mt-6 text-primary text-xs font-mono uppercase hover:underline flex items-center gap-2 group/btn">
+                    View all {project.features.length} features <span className="group-hover:translate-x-1 transition-transform">→</span>
                   </button>
                 )}
               </div>
             )}
 
             {/* Tech Stack */}
-            <div className="bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-6">
-              <h3 className="font-headline text-xl font-bold text-on-surface mb-4 flex items-center gap-2">
-                <span className="material-symbols-outlined text-primary">code</span>
+            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 hover:bg-white/[0.07] transition-colors group/card">
+              <h3 className="font-headline text-xl font-bold text-on-surface mb-6 flex items-center gap-3">
+                <span className="material-symbols-outlined text-primary group-hover/card:scale-110 transition-transform">code</span>
                 Tech Stack
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-3">
                 {project.technologies.map((tech) => (
-                  <span key={tech} className="px-3 py-1.5 bg-surface-container-high text-on-surface-variant text-xs font-mono rounded-lg border border-outline-variant/20">
+                  <span key={tech} className="px-4 py-2 bg-white/[0.05] text-on-surface-variant text-xs font-mono rounded-lg border border-white/10 hover:border-primary/50 transition-colors">
                     {tech}
                   </span>
                 ))}
@@ -305,20 +305,20 @@ export default function ProjectDetailPage() {
 
             {/* Project Stats */}
             <div className="grid grid-cols-3 gap-4">
-              <div className="bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-4 text-center">
-                <span className="material-symbols-outlined text-primary text-2xl mb-2">image</span>
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center hover:bg-white/[0.07] transition-colors">
+                <span className="material-symbols-outlined text-primary text-2xl mb-3">image</span>
                 <div className="font-headline text-2xl font-bold text-on-surface">{project.gallery?.length || 0}</div>
-                <div className="font-mono text-[10px] text-on-surface-variant uppercase">Screenshots</div>
+                <div className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mt-1">Screens</div>
               </div>
-              <div className="bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-4 text-center">
-                <span className="material-symbols-outlined text-primary text-2xl mb-2">videocam</span>
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center hover:bg-white/[0.07] transition-colors">
+                <span className="material-symbols-outlined text-primary text-2xl mb-3">videocam</span>
                 <div className="font-headline text-2xl font-bold text-on-surface">{project.videos?.length || 0}</div>
-                <div className="font-mono text-[10px] text-on-surface-variant uppercase">Videos</div>
+                <div className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mt-1">Videos</div>
               </div>
-              <div className="bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-4 text-center">
-                <span className="material-symbols-outlined text-primary text-2xl mb-2">checklist</span>
+              <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 text-center hover:bg-white/[0.07] transition-colors">
+                <span className="material-symbols-outlined text-primary text-2xl mb-3">checklist</span>
                 <div className="font-headline text-2xl font-bold text-on-surface">{project.features?.length || 0}</div>
-                <div className="font-mono text-[10px] text-on-surface-variant uppercase">Features</div>
+                <div className="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest mt-1">Features</div>
               </div>
             </div>
           </div>
