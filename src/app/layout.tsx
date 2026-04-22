@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import "./globals.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -10,40 +11,60 @@ import SplashScreen from "../components/SplashScreen";
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains-mono",
   subsets: ["latin"],
+  display: "swap",
 });
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#00E5FF',
+};
+
 export const metadata: Metadata = {
+  metadataBase: new URL('https://gucluyumhe.dev'),
   title: {
-    default: "Ömer Özbay | Full-Stack Engineer",
+    default: "Ömer Özbay | Full-Stack Engineer & SaaS Developer",
     template: "%s | Ömer Özbay"
   },
-  description: "Computer Engineering student at Bandırma 17 Eylül University. Building AI-powered SaaS applications, mobile apps, and modern web experiences with React, Next.js, and TypeScript.",
+  description: "Ömer Özbay — Computer Engineering student at Bandırma 17 Eylül University. Full-Stack Engineer building AI-powered SaaS applications, mobile apps, and modern web experiences with React, Next.js, TypeScript, and Node.js. Portfolio showcasing projects, technical blog, and expertise.",
   keywords: [
     "Ömer Özbay",
+    "Ömer Özbay portfolio",
+    "gucluyumhe",
+    "gucluyumhe.dev",
     "Full-Stack Developer",
+    "Full-Stack Engineer",
     "Software Engineer",
     "React Developer",
     "Next.js Developer",
-    "TypeScript",
+    "TypeScript Developer",
     "Frontend Developer",
     "Backend Developer",
+    "Node.js Developer",
     "Mobile App Developer",
-    "Quran App",
     "SaaS Developer",
-    "AI Integration",
+    "AI Integration Developer",
     "Web Development",
     "Turkey Developer",
-    "Bandırma"
+    "Bandırma",
+    "Bandırma 17 Eylül University",
+    "Computer Engineering",
+    "freelance developer",
+    "yazılımcı",
+    "web geliştirici",
   ],
   authors: [
     { name: "Ömer Özbay", url: "https://gucluyumhe.dev" }
@@ -63,34 +84,38 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "tr_TR",
+    locale: "en_US",
     url: "https://gucluyumhe.dev",
-    title: "Ömer Özbay | Full-Stack Engineer",
-    description: "Computer Engineering student building AI-powered SaaS applications and modern web experiences",
-    siteName: "Ömer Özbay Portfolio",
+    title: "Ömer Özbay | Full-Stack Engineer & SaaS Developer",
+    description: "Full-Stack Engineer building AI-powered SaaS applications and modern web experiences. Explore projects, technical blog, and portfolio.",
+    siteName: "Ömer Özbay — gucluyumhe.dev",
     images: [
       {
-        url: "https://gucluyumhe.dev/og-image.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Ömer Özbay - Full-Stack Engineer Portfolio",
+        alt: "Ömer Özbay — Full-Stack Engineer Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ömer Özbay | Full-Stack Engineer",
-    description: "Computer Engineering student building AI-powered SaaS applications and modern web experiences",
+    title: "Ömer Özbay | Full-Stack Engineer & SaaS Developer",
+    description: "Full-Stack Engineer building AI-powered SaaS applications and modern web experiences.",
     creator: "@gucluyumhe",
-    images: ["https://gucluyumhe.dev/twitter-image.png"],
+    images: ["/og-image.png"],
   },
   icons: {
-    icon: '/favicon.svg',
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: '/favicon.svg',
   },
   manifest: '/site.webmanifest',
   alternates: {
     canonical: 'https://gucluyumhe.dev',
   },
+  category: 'technology',
 };
 
 export default function RootLayout({
@@ -99,7 +124,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr" className="dark">
+    <html lang="en" className="dark">
       <head>
         <meta name="google-site-verification" content="S4AmguZUsl3R0caFt-YZ0ztkck_dYM1yOZPH-j22X_4" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -112,7 +137,7 @@ export default function RootLayout({
             vertical-align: middle;
           }
         `}</style>
-        {/* JSON-LD Structured Data for SEO */}
+        {/* JSON-LD: Person Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -120,7 +145,9 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Person",
               "name": "Ömer Özbay",
+              "alternateName": "gucluyumhe",
               "jobTitle": "Full-Stack Engineer",
+              "description": "Computer Engineering student and Full-Stack Engineer building AI-powered SaaS applications, mobile apps, and modern web experiences.",
               "url": "https://gucluyumhe.dev",
               "image": "https://gucluyumhe.dev/images/author.jpg",
               "sameAs": [
@@ -134,9 +161,43 @@ export default function RootLayout({
               },
               "alumniOf": {
                 "@type": "CollegeOrUniversity",
-                "name": "Bandırma 17 Eylül University"
+                "name": "Bandırma 17 Eylül University",
+                "department": "Computer Engineering"
               },
-              "knowsAbout": ["Full-Stack Development", "React", "Next.js", "TypeScript", "Node.js", "AI Integration", "SaaS"]
+              "knowsAbout": [
+                "Full-Stack Development", "React", "Next.js", "TypeScript", "Node.js", 
+                "AI Integration", "SaaS", "PostgreSQL", "Tailwind CSS", "Mobile App Development"
+              ],
+              "nationality": {
+                "@type": "Country",
+                "name": "Turkey"
+              }
+            })
+          }}
+        />
+        {/* JSON-LD: WebSite Schema for Sitelinks Search */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Ömer Özbay Portfolio",
+              "alternateName": ["gucluyumhe", "gucluyumhe.dev"],
+              "url": "https://gucluyumhe.dev",
+              "description": "Full-Stack Engineer portfolio — projects, blog, and expertise by Ömer Özbay.",
+              "author": {
+                "@type": "Person",
+                "name": "Ömer Özbay"
+              },
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": {
+                  "@type": "EntryPoint",
+                  "urlTemplate": "https://gucluyumhe.dev/blog?q={search_term_string}"
+                },
+                "query-input": "required name=search_term_string"
+              }
             })
           }}
         />
@@ -152,6 +213,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

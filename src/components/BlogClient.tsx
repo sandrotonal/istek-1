@@ -149,83 +149,84 @@ export default function BlogClient({ initialPosts }: BlogClientProps) {
         </section>
 
         {/* Sidebar */}
-        <aside className="lg:col-span-4 flex flex-col gap-12">
-          {/* Search & Filter */}
-          <div className="bg-surface-container-lowest p-6 border-l-2 border-primary rounded-sm space-y-4">
-            <label htmlFor="search-input" className="block text-xs font-mono text-primary uppercase mb-3 tracking-widest">Search Archive</label>
-            <div className="relative">
+        <aside className="lg:col-span-4 flex flex-col gap-12 lg:pl-4">
+          
+          {/* Minimal Search */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+              <h3 className="font-mono text-[10px] text-primary uppercase tracking-[0.2em] font-bold">Search Archive</h3>
+            </div>
+            <div className="relative group">
               <input
                 id="search-input"
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="QUERY_STRING..."
+                placeholder="Search articles..."
                 aria-label="Search blog posts"
-                className="w-full bg-surface-container-low border-none focus:ring-1 focus:ring-primary text-on-surface font-mono placeholder:text-outline-variant py-3 pl-4 pr-10 rounded-sm outline-none"
+                className="w-full bg-transparent border-b border-outline-variant/30 focus:border-primary text-on-surface font-mono text-sm placeholder:text-outline-variant/50 py-3 pl-2 pr-10 outline-none transition-colors duration-300"
               />
-              <span className="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline-variant">search</span>
+              <span className="material-symbols-outlined absolute right-2 top-1/2 -translate-y-1/2 text-outline-variant/50 group-focus-within:text-primary transition-colors text-xl">search</span>
             </div>
-            {categories.length > 0 && (
-              <div className="pt-4 border-t border-outline-variant/20">
-                <span className="block text-xs font-mono text-on-surface-variant uppercase mb-3 tracking-widest">Filter by Category</span>
-                <div className="flex flex-wrap gap-2">
-                  <button
-                    onClick={() => setSelectedCategory(null)}
-                    className={`px-4 py-2 text-xs font-mono rounded-md transition-all border ${!selectedCategory ? 'bg-primary text-on-primary-fixed border-primary' : 'bg-surface-container-highest text-on-surface-variant border-transparent hover:border-primary/20 hover:text-primary'}`}
-                  >
-                    ALL
-                  </button>
-                  {categories.map((cat: string) => (
-                    <button
-                      key={cat}
-                      onClick={() => setSelectedCategory(cat)}
-                      className={`px-4 py-2 text-xs font-mono rounded-md transition-all border ${selectedCategory === cat ? 'bg-primary text-on-primary-fixed border-primary' : 'bg-surface-container-highest text-on-surface-variant border-transparent hover:border-primary/20 hover:text-primary'}`}
-                    >
-                      {cat}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-            {(searchTerm || selectedCategory) && (
-              <div className="pt-4 border-t border-outline-variant/20">
-                <p className="text-xs font-mono text-on-surface-variant">
+            <div className="h-4">
+              {(searchTerm || selectedCategory) && (
+                <p className="text-[10px] font-mono text-on-surface-variant transition-opacity">
                   Showing {filteredPosts.length} of {initialPosts.length} posts
                 </p>
-              </div>
-            )}
-          </div>
-
-          {/* Author Snippet */}
-          <div className="flex flex-col gap-6">
-            <h3 className="font-headline font-bold text-xl tracking-tight flex items-center gap-2 text-on-surface">
-              <span className="w-4 h-4 bg-primary rounded-sm"></span> AUTHOR
-            </h3>
-            <div className="flex flex-col gap-4">
-              <div className="w-20 h-20 rounded-full bg-surface-container-high border-2 border-primary/20 p-1 overflow-hidden relative grayscale">
-                 <Image src="/images/author.jpg" alt="Author" fill sizes="80px" className="object-cover rounded-full" />
-              </div>
-              <p className="text-on-surface-variant text-sm leading-relaxed">
-                Ömer Özbay is a Full-Stack Engineer focused on architectural precision and high-performance system design. Building the future with obsidian and light.
-              </p>
+              )}
             </div>
           </div>
 
-          {/* Categories */}
-          <div className="flex flex-col gap-6">
-            <h3 className="font-headline font-bold text-xl tracking-tight flex items-center gap-2 text-on-surface">
-              <span className="w-4 h-4 bg-primary rounded-sm"></span> CATEGORIES
-            </h3>
-            <div className="flex flex-wrap gap-2">
-              {categories.map((cat: string) => (
+          {/* Minimal Categories (Consolidated) */}
+          {categories.length > 0 && (
+            <div className="space-y-6">
+              <div className="flex items-center gap-3">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                <h3 className="font-mono text-[10px] text-primary uppercase tracking-[0.2em] font-bold">Categories</h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
                 <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(selectedCategory === cat ? null : cat)}
-                  className={`px-4 py-2 text-xs font-mono rounded-md transition-all border ${selectedCategory === cat ? 'bg-primary text-on-primary-fixed border-primary' : 'bg-surface-container-highest text-on-surface-variant border-transparent hover:border-primary/20 hover:text-primary'}`}
+                  onClick={() => setSelectedCategory(null)}
+                  className={`px-3 py-1.5 text-[9px] font-mono rounded-full transition-all border ${!selectedCategory ? 'bg-primary text-on-primary-fixed border-primary' : 'bg-transparent text-on-surface-variant border-outline-variant/20 hover:border-primary/40 hover:text-primary'}`}
                 >
-                  {cat}
+                  ALL
                 </button>
-              ))}
+                {categories.map((cat: string) => (
+                  <button
+                    key={cat}
+                    onClick={() => setSelectedCategory(cat)}
+                    className={`px-3 py-1.5 text-[9px] font-mono rounded-full transition-all border ${selectedCategory === cat ? 'bg-primary text-on-primary-fixed border-primary' : 'bg-transparent text-on-surface-variant border-outline-variant/20 hover:border-primary/40 hover:text-primary'}`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Clean Author Snippet */}
+          <div className="space-y-6">
+            <div className="flex items-center gap-3">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+              <h3 className="font-mono text-[10px] text-primary uppercase tracking-[0.2em] font-bold">Author</h3>
+            </div>
+            <div className="flex flex-col gap-4 p-6 rounded-2xl border border-outline-variant/10 bg-surface-container-low/5 group hover:border-primary/30 hover:bg-surface-container-low/20 transition-all duration-300">
+              <div className="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
+                {/* Circular Hover Frame around the Image */}
+                <div className="p-1 rounded-full border border-outline-variant/20 group-hover:border-primary/50 group-hover:scale-105 transition-all duration-500 shrink-0 shadow-sm">
+                  <div className="w-16 h-16 rounded-full overflow-hidden relative grayscale contrast-125 group-hover:grayscale-0 transition-all duration-500">
+                     <Image src="/images/author.jpg" alt="Author" fill sizes="64px" className="object-cover" />
+                  </div>
+                </div>
+                <div>
+                  <h4 className="font-headline font-bold text-on-surface text-lg group-hover:text-primary transition-colors duration-300">Ömer Özbay</h4>
+                  <p className="text-[10px] font-mono text-primary/80 mt-0.5 uppercase tracking-widest">Full-Stack Engineer</p>
+                </div>
+              </div>
+              <p className="text-on-surface-variant text-sm font-light leading-relaxed text-center md:text-left mt-2">
+                Focused on architectural precision and high-performance system design. Building the future with clean code and rigorous logic.
+              </p>
             </div>
           </div>
         </aside>

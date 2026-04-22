@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import { Post } from '@/utils/markdown';
 
@@ -11,6 +12,17 @@ interface BlogPostClientProps {
 }
 
 export default function BlogPostClient({ postData }: BlogPostClientProps) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
+  useEffect(() => {
+    // Check initial bookmark state
+    if (typeof window !== 'undefined') {
+      const savedBookmarks = JSON.parse(localStorage.getItem('bookmarked_posts') || '[]');
+      setIsBookmarked(savedBookmarks.includes(postData.id));
+    }
+  }, [postData.id]);
+
   // Share function
   const handleShare = async () => {
     const shareData = {
@@ -36,15 +48,17 @@ export default function BlogPostClient({ postData }: BlogPostClientProps) {
   const handleBookmark = () => {
     if (typeof window !== 'undefined') {
       const savedBookmarks = JSON.parse(localStorage.getItem('bookmarked_posts') || '[]');
-      const isBookmarked = savedBookmarks.includes(postData.id);
+      const currentlyBookmarked = savedBookmarks.includes(postData.id);
       
-      if (isBookmarked) {
+      if (currentlyBookmarked) {
         const updated = savedBookmarks.filter((id: string) => id !== postData.id);
         localStorage.setItem('bookmarked_posts', JSON.stringify(updated));
+        setIsBookmarked(false);
         alert('Bookmark removed!');
       } else {
         savedBookmarks.push(postData.id);
         localStorage.setItem('bookmarked_posts', JSON.stringify(savedBookmarks));
+        setIsBookmarked(true);
         alert('Article bookmarked!');
       }
     }
@@ -136,56 +150,62 @@ export default function BlogPostClient({ postData }: BlogPostClientProps) {
           </div>
         </aside>
 
-        {/* Mobile Floating Actions - Hidden by default, shown when menu is open */}
-        <div id="mobile-actions-menu" className="hidden fixed right-4 bottom-20 z-50 flex flex-col gap-2">
+        {/* Mobile Floating Actions */}
+        <div className="lg:hidden fixed right-4 md:right-6 bottom-6 z-50 flex flex-col items-end gap-3">
+          <AnimatePresence>
+            {isMobileMenuOpen && (
+              <motion.div 
+                initial={{ opacity: 0, y: 20, scale: 0.8 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 20, scale: 0.8 }}
+                transition={{ duration: 0.2 }}
+                className="flex flex-col gap-3"
+              >
+                <button 
+                  onClick={() => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    setIsMobileMenuOpen(false);
+                  }}
+                  aria-label="Scroll to top"
+                  className="w-12 h-12 bg-surface-container-high/90 backdrop-blur-md border border-outline-variant/20 text-on-surface flex items-center justify-center rounded-2xl shadow-xl hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-all active:scale-95"
+                >
+                  <span className="material-symbols-outlined text-xl">expand_less</span>
+                </button>
+                <button 
+                  onClick={() => {
+                    handleBookmark();
+                    setIsMobileMenuOpen(false);
+                  }} 
+                  aria-label={isBookmarked ? "Remove Bookmark" : "Bookmark this article"}
+                  className={`w-12 h-12 bg-surface-container-high/90 backdrop-blur-md border border-outline-variant/20 flex items-center justify-center rounded-2xl shadow-xl hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-all active:scale-95 ${isBookmarked ? 'text-primary' : 'text-on-surface'}`}
+                >
+                  <span className="material-symbols-outlined text-xl" style={{ fontVariationSettings: isBookmarked ? "'FILL' 1" : "'FILL' 0" }}>bookmark</span>
+                </button>
+                <button 
+                  onClick={() => {
+                    handleShare();
+                    setIsMobileMenuOpen(false);
+                  }} 
+                  aria-label="Share this article"
+                  className="w-12 h-12 bg-surface-container-high/90 backdrop-blur-md border border-outline-variant/20 text-on-surface flex items-center justify-center rounded-2xl shadow-xl hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-all active:scale-95"
+                >
+                  <span className="material-symbols-outlined text-xl">share</span>
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Toggle Button */}
           <button 
-            onClick={handleShare} 
-            aria-label="Share this article"
-            className="w-10 h-10 bg-surface-container-high border border-outline-variant/20 text-primary flex items-center justify-center rounded-full shadow-lg hover:bg-primary hover:text-on-primary-fixed transition-all active:scale-95"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open actions menu"}
+            className={`w-12 h-12 border flex items-center justify-center rounded-2xl shadow-2xl transition-all duration-300 active:scale-95 ${isMobileMenuOpen ? 'bg-primary border-primary text-on-primary-fixed shadow-primary/20' : 'bg-surface-container-high/90 backdrop-blur-md border-outline-variant/20 text-primary hover:border-primary/30 hover:bg-surface-container-highest/90'}`}
           >
-            <span className="material-symbols-outlined text-lg">share</span>
-          </button>
-          <button 
-            onClick={handleBookmark} 
-            aria-label="Bookmark this article"
-            className="w-10 h-10 bg-surface-container-high border border-outline-variant/20 text-primary flex items-center justify-center rounded-full shadow-lg hover:bg-primary hover:text-on-primary-fixed transition-all active:scale-95"
-          >
-            <span className="material-symbols-outlined text-lg">bookmark</span>
-          </button>
-          <button 
-            onClick={() => {
-              const menu = document.getElementById('mobile-actions-menu');
-              if (menu) menu.classList.add('hidden');
-            }}
-            aria-label="More options"
-            className="w-10 h-10 bg-surface-container-high border border-outline-variant/20 text-primary flex items-center justify-center rounded-full shadow-lg hover:bg-primary hover:text-on-primary-fixed transition-all active:scale-95"
-          >
-            <span className="material-symbols-outlined text-lg">more_horiz</span>
-          </button>
-          <button 
-            onClick={() => {
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-              const menu = document.getElementById('mobile-actions-menu');
-              if (menu) menu.classList.add('hidden');
-            }}
-            aria-label="Scroll to top"
-            className="w-10 h-10 bg-surface-container-high border border-outline-variant/20 text-primary flex items-center justify-center rounded-full shadow-lg hover:bg-primary hover:text-on-primary-fixed transition-all active:scale-95"
-          >
-            <span className="material-symbols-outlined text-lg">expand_less</span>
+            <span className="material-symbols-outlined text-xl transition-transform duration-300" style={{ transform: isMobileMenuOpen ? 'rotate(45deg)' : 'none' }}>
+              {isMobileMenuOpen ? 'add' : 'more_horiz'}
+            </span>
           </button>
         </div>
-        
-        {/* Mobile Menu Toggle Button - Always visible */}
-        <button 
-          onClick={() => {
-            const menu = document.getElementById('mobile-actions-menu');
-            if (menu) menu.classList.toggle('hidden');
-          }}
-          aria-label="Open actions menu"
-          className="lg:hidden fixed right-4 bottom-20 w-10 h-10 bg-surface-container-high border border-outline-variant/20 text-primary flex items-center justify-center rounded-full shadow-lg hover:bg-primary hover:text-on-primary-fixed transition-all active:scale-95 z-[60]"
-        >
-          <span className="material-symbols-outlined text-lg">keyboard_arrow_up</span>
-        </button>
 
         {/* Mobile Back Button */}
         <div className="lg:hidden mb-4">

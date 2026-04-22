@@ -1,7 +1,7 @@
 {
-  "name": "Ömer Özbay Portfolio",
+  "name": "Ömer Özbay — Full-Stack Engineer Portfolio",
   "short_name": "Ömer Özbay",
-  "description": "Full-Stack Engineer Portfolio - Building AI-powered SaaS applications",
+  "description": "Full-Stack Engineer building AI-powered SaaS applications and modern web experiences — gucluyumhe.dev",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0e0e0f",
@@ -15,7 +15,9 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["portfolio", "developer", "engineering"],
-  "lang": "tr",
-  "dir": "ltr"
+  "categories": ["portfolio", "developer", "engineering", "technology"],
+  "lang": "en",
+  "dir": "ltr",
+  "scope": "/",
+  "id": "/"
 }

@@ -91,13 +91,31 @@ export const projects = [
   },
   {
     id: 4,
-    title: 'AI Content Generator',
-    description: 'Web application that generates blog posts and social media content using OpenAI API.',
-    image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
-    demoUrl: 'https://example.com/demo',
-    githubUrl: 'https://github.com/omerozbay/ai-content-generator',
-    technologies: ['React', 'Next.js', 'OpenAI API', 'Vercel AI SDK'],
-    categories: ['AI_ML', 'PYTHON', 'REACT_JS']
+    title: 'Berserk Web Experience',
+    description: 'A premium tribute to the Berserk universe, featuring a stunning dark aesthetic, smooth animations, and immersive UI/UX.',
+    longDescription: 'A high-end web experience dedicated to Kentaro Miura\'s masterpiece, Berserk. Built with Next.js and Framer Motion, this project pushes the boundaries of web aesthetics with a "dark mode first" philosophy. It features custom-crafted components, smooth parallax effects, and a highly responsive layout that adapts perfectly to both mobile and desktop. The project showcases the dark, gritty atmosphere of the Berserk world through precise typography and high-fidelity imagery.',
+    image: '/images/guts/guts-1.png',
+    gallery: [
+      '/images/guts/guts-1.png',
+      '/images/guts/guts-2.png',
+      '/images/guts/guts-3.png',
+      '/images/guts/guts-4.png'
+    ],
+    videos: [],
+    features: [
+      'Premium dark aesthetic inspired by architectural precision',
+      'Fluid animations and transitions powered by Framer Motion',
+      'Custom-built interactive gallery with smooth transitions',
+      'Mobile-first responsive design with optimized performance',
+      'High-fidelity image rendering and optimization',
+      'Seamless scroll-based parallax effects',
+      'Modern tech stack with Next.js 15 and Tailwind CSS',
+      'Contact integration with Web3forms'
+    ],
+    demoUrl: 'https://berserk-lemon.vercel.app/',
+    githubUrl: 'https://github.com/sandrotonal/berserk',
+    technologies: ['Next.js 15', 'TypeScript', 'Framer Motion', 'Tailwind CSS', 'Web3forms', 'Lucide Icons'],
+    categories: ['REACT_JS', 'HTML_CSS']
   },
   {
     id: 5,

@@ -89,7 +89,8 @@ export async function getPostData(slug: string): Promise<Post> {
     .process(matterResult.content);
   const content = processedContent.toString();
   
-  console.log(`Processed content for ${slug}:`, content.substring(0, 100)); // Debug log
+
+
 
   return {
     id: slug,

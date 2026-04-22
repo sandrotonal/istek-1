@@ -236,7 +236,7 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           {displayedProjects.map((project, index) => (
-            <Link href={project.githubUrl !== '#' ? project.githubUrl : '/projects'} key={project.id} className="group relative flex flex-col bg-surface-container-low border border-outline-variant/10 rounded-xl overflow-hidden hover:border-primary/40 transition-all duration-500 hover:-translate-y-2">
+            <Link href={`/projects/${project.id}`} key={project.id} className="group relative flex flex-col bg-surface-container-low border border-outline-variant/10 rounded-xl overflow-hidden hover:border-primary/40 transition-all duration-500 hover:-translate-y-2">
                <div className="aspect-video bg-surface-container-high relative overflow-hidden">
                 <Image
                     src={project.image}
@@ -261,8 +261,24 @@ export default function HomeClient({ recentPosts }: HomeClientProps) {
                 </div>
                 <div className="mt-auto pt-4 flex items-center justify-between">
                   <div className="flex gap-4">
-                    <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">code</span>
-                    <span className="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">visibility</span>
+                    {project.githubUrl && project.githubUrl !== '#' && (
+                      <button 
+                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(project.githubUrl, '_blank'); }}
+                        className="material-symbols-outlined text-on-surface-variant hover:!text-primary transition-colors"
+                        title="View Source Code"
+                      >
+                        code
+                      </button>
+                    )}
+                    {project.demoUrl && project.demoUrl !== '#' && (
+                      <button 
+                        onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.open(project.demoUrl, '_blank'); }}
+                        className="material-symbols-outlined text-on-surface-variant hover:!text-primary transition-colors"
+                        title="View Live Demo"
+                      >
+                        visibility
+                      </button>
+                    )}
                   </div>
                   <span className="text-[10px] font-mono text-primary opacity-0 group-hover:opacity-100 transition-opacity">0x0{index+1}_BUILD</span>
                 </div>
