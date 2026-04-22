@@ -1,5 +1,33 @@
 export const projects = [
   {
+    id: 4,
+    title: 'Berserk Web Experience',
+    description: 'A premium tribute to the Berserk universe, featuring a stunning dark aesthetic, smooth animations, and immersive UI/UX.',
+    longDescription: 'A high-end web experience dedicated to Kentaro Miura\'s masterpiece, Berserk. Built with Next.js and Framer Motion, this project pushes the boundaries of web aesthetics with a "dark mode first" philosophy. It features custom-crafted components, smooth parallax effects, and a highly responsive layout that adapts perfectly to both mobile and desktop. The project showcases the dark, gritty atmosphere of the Berserk world through precise typography and high-fidelity imagery.',
+    image: '/images/guts/guts-1.png',
+    gallery: [
+      '/images/guts/guts-1.png',
+      '/images/guts/guts-2.png',
+      '/images/guts/guts-3.png',
+      '/images/guts/guts-4.png'
+    ],
+    videos: [],
+    features: [
+      'Premium dark aesthetic inspired by architectural precision',
+      'Fluid animations and transitions powered by Framer Motion',
+      'Custom-built interactive gallery with smooth transitions',
+      'Mobile-first responsive design with optimized performance',
+      'High-fidelity image rendering and optimization',
+      'Seamless scroll-based parallax effects',
+      'Modern tech stack with Next.js 15 and Tailwind CSS',
+      'Contact integration with Web3forms'
+    ],
+    demoUrl: 'https://berserk-lemon.vercel.app/',
+    githubUrl: 'https://github.com/sandrotonal/berserk',
+    technologies: ['Next.js 15', 'TypeScript', 'Framer Motion', 'Tailwind CSS', 'Web3forms', 'Lucide Icons'],
+    categories: ['REACT_JS', 'HTML_CSS']
+  },
+  {
     id: 1,
     title: 'Quran App',
     description: 'A modern Quran reading app with Arabic text rendering, audio recitations, and offline support. Clean typography meets intuitive navigation for daily spiritual practice.',
@@ -87,34 +115,6 @@ export const projects = [
     demoUrl: 'https://guts-berserk.vercel.app/',
     githubUrl: 'https://github.com/sandrotonal/guts_berserk',
     technologies: ['React', 'Vite', 'Tailwind CSS', 'Framer Motion', 'TypeScript', 'EmailJS'],
-    categories: ['REACT_JS', 'HTML_CSS']
-  },
-  {
-    id: 4,
-    title: 'Berserk Web Experience',
-    description: 'A premium tribute to the Berserk universe, featuring a stunning dark aesthetic, smooth animations, and immersive UI/UX.',
-    longDescription: 'A high-end web experience dedicated to Kentaro Miura\'s masterpiece, Berserk. Built with Next.js and Framer Motion, this project pushes the boundaries of web aesthetics with a "dark mode first" philosophy. It features custom-crafted components, smooth parallax effects, and a highly responsive layout that adapts perfectly to both mobile and desktop. The project showcases the dark, gritty atmosphere of the Berserk world through precise typography and high-fidelity imagery.',
-    image: '/images/guts/guts-1.png',
-    gallery: [
-      '/images/guts/guts-1.png',
-      '/images/guts/guts-2.png',
-      '/images/guts/guts-3.png',
-      '/images/guts/guts-4.png'
-    ],
-    videos: [],
-    features: [
-      'Premium dark aesthetic inspired by architectural precision',
-      'Fluid animations and transitions powered by Framer Motion',
-      'Custom-built interactive gallery with smooth transitions',
-      'Mobile-first responsive design with optimized performance',
-      'High-fidelity image rendering and optimization',
-      'Seamless scroll-based parallax effects',
-      'Modern tech stack with Next.js 15 and Tailwind CSS',
-      'Contact integration with Web3forms'
-    ],
-    demoUrl: 'https://berserk-lemon.vercel.app/',
-    githubUrl: 'https://github.com/sandrotonal/berserk',
-    technologies: ['Next.js 15', 'TypeScript', 'Framer Motion', 'Tailwind CSS', 'Web3forms', 'Lucide Icons'],
     categories: ['REACT_JS', 'HTML_CSS']
   },
   {
